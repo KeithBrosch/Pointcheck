@@ -1,6 +1,10 @@
 <template>
   <div class="home">
-    <nav>
+    <loading :active.sync="isLoading"
+        :is-full-page="fullPage"
+        color="#166CBF">
+    </loading>
+    <nav id="nav">
       <div class="nav-content">
         <div class="headline">
           <h1>Pointcheck</h1>
@@ -11,7 +15,8 @@
       </div>
     </nav>
     <div class="content">
-      <PlayerForm/>
+      <PlayerForm v-if="!showResults" v-on:submit="submit($event)"/>
+      <Results @expandNav="expandNav()" v-if="showResults" :results="results"/>
     </div>
   </div>
 </template>
@@ -19,11 +24,76 @@
 <script>
 // @ is an alias to /src
 import PlayerForm from '@/components/PlayerForm.vue';
+import Results from '@/components/Results.vue';
+
+import Loading from 'vue-loading-overlay';
+import 'vue-loading-overlay/dist/vue-loading.css';
 
 export default {
   name: 'Home',
   components: {
     PlayerForm,
+    Loading,
+    Results,
+  },
+  methods: {
+    submit(gamertags) {
+      if (gamertags && gamertags.length === 2) {
+        this.isLoading = true;
+        // API call
+        // store data in this.results
+        setTimeout(() => {
+          this.showResults = true;
+          this.isLoading = false;
+        }, 3000);
+      } else {
+        // handle error
+      }
+    },
+    expandNav() {
+      const nav = document.getElementById('nav');
+      nav.style.marginLeft = 0;
+    },
+  },
+  data() {
+    return {
+      gamertag1: '',
+      gamertag2: '',
+      isLoading: false,
+      fullPage: true,
+      showResults: false,
+      results: {
+        playerOneName: 'Kifflom',
+        playerOneKd: 200,
+        playerOneWinPercent: 1,
+        playerTwoName: 'Infury',
+        playerTwoKd: -1,
+        playerTwoWinPercent: 0.99,
+        matchedGames: [
+          {
+            gameID: 100,
+            map: 'The Pit',
+            playlist: null,
+            gametype: 'CTF 3Flag',
+            gamedate: '2010-02-02T00:00:00',
+          },
+          {
+            gameID: 200,
+            map: 'Narrows',
+            playlist: null,
+            gametype: 'CTF 3Flag',
+            gamedate: '2010-04-02T00:00:00',
+          },
+          {
+            gameID: 3400,
+            map: 'Heretic',
+            playlist: null,
+            gametype: 'Slayer',
+            gamedate: '2011-04-02T00:00:00',
+          },
+        ],
+      },
+    };
   },
 };
 </script>
@@ -42,7 +112,7 @@ export default {
   /* overflow: hidden; */
 }
 nav {
-  width: 400px;
+  width: 33%;
   background: #fff;
   height: 100%;
   box-shadow: 2px 0 5px -2px #000;
@@ -50,7 +120,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: -350px;
+  margin-left: -30%;
 }
 nav:hover {
   margin-left: 0;

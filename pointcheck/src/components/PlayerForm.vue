@@ -1,9 +1,5 @@
 <template>
   <div class="player-form">
-      <loading :active.sync="isLoading"
-        :is-full-page="fullPage"
-        color="#166CBF">
-    </loading>
     <label>Gamertag 1</label>
     <br>
     <input type="text" v-model="gamertag1"/>
@@ -13,20 +9,18 @@
     <br>
     <input type="text" v-model="gamertag2"/>
     <br>
-    <div v-if="!(gamertag1.length && gamertag2.length)" class="info-container">
-    <p class="info">* you must enter the CURRENT gamertag on the account</p>
+    <div v-if="!valid" class="info-container">
+    <p class="info">* you must enter the CURRENT gamertag of the account</p>
     <p class="info">* only matches from before 2011 are recoverable</p>
     </div>
-    <button v-if="gamertag1.length && gamertag2.length" @click="submit()"
+    <button v-if="(valid)"
+    @click="submit()"
     type="submit">Search</button>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import Loading from 'vue-loading-overlay';
-import 'vue-loading-overlay/dist/vue-loading.css';
-
 
 export default {
   name: 'PlayerForm',
@@ -34,20 +28,19 @@ export default {
     return {
       gamertag1: '',
       gamertag2: '',
-      isLoading: false,
-      fullPage: true,
     };
-  },
-  components: {
-    Loading,
   },
   methods: {
     submit() {
-      this.isLoading = true;
-      // API call
-      setTimeout(() => {
-        this.isLoading = false;
-      }, 5000);
+      this.$emit('submit', [this.gamertag1, this.gamertag2]);
+    },
+  },
+  computed: {
+    valid() {
+      if (this.gamertag1.length && this.gamertag2.length
+      && (this.gamertag1 !== this.gamertag2)) {
+        return true;
+      } return false;
     },
   },
 };
