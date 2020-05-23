@@ -5,7 +5,7 @@
         <div class="headline">
           <h1>Pointcheck</h1>
         </div>
-      <div class="details">Front End Repo</div>
+      <div class="details">some stuff goes here</div>
       <div class="footer">created by <a href="https://twitter.com/keithbrosch" target="blank">@keithbrosch</a> and <a href="https://twitter.com/kifflom" target="blank">@kifflom</a>
       <br><br> <a href="#"><center>donate</center></a></div>
       </div>

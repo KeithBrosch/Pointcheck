@@ -15,5 +15,6 @@
   height: 100vh;
   width: 100vw;
   overflow: hidden;
+  text-transform: lowercase;
 }
 </style>

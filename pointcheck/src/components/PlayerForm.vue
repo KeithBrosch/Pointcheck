@@ -1,5 +1,10 @@
 <template>
   <div class="player-form">
+      <loading :active.sync="isLoading"
+        :can-cancel="true"
+        :on-cancel="onCancel"
+        :is-full-page="fullPage">
+    </loading>
     <label>Gamertag 1</label>
     <br>
     <input type="text" v-model="gamertag1"/>
@@ -20,6 +25,9 @@
 
 <script>
 // @ is an alias to /src
+import Loading from 'vue-loading-overlay';
+import 'vue-loading-overlay/dist/vue-loading.css';
+
 
 export default {
   name: 'PlayerForm',
@@ -27,7 +35,24 @@ export default {
     return {
       gamertag1: '',
       gamertag2: '',
+      isLoading: false,
+      fullPage: true,
     };
+  },
+  components: {
+    Loading,
+  },
+  methods: {
+    submit() {
+      this.isLoading = true;
+      // API call
+      setTimeout(() => {
+        this.isLoading = false;
+      }, 5000);
+    },
+    onCancel() {
+      console.log('User cancelled the loader.');
+    },
   },
 };
 </script>
