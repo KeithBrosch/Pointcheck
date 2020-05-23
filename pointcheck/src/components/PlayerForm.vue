@@ -1,9 +1,8 @@
 <template>
   <div class="player-form">
       <loading :active.sync="isLoading"
-        :can-cancel="true"
-        :on-cancel="onCancel"
-        :is-full-page="fullPage">
+        :is-full-page="fullPage"
+        color="#166CBF">
     </loading>
     <label>Gamertag 1</label>
     <br>
@@ -49,9 +48,6 @@ export default {
       setTimeout(() => {
         this.isLoading = false;
       }, 5000);
-    },
-    onCancel() {
-      console.log('User cancelled the loader.');
     },
   },
 };
