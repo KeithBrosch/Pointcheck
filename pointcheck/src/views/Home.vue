@@ -72,12 +72,12 @@ export default {
           emblemURL: 'https://halo.bungie.net/Stats/emblem.ashx?s=70&0=3&1=2&2=2&3=3&fi=51&bi=4&fl=1&m=1',
         },
         matches: [
-          // {
-          //   player1Place: 1,
-          //   player2Place: 2,
-          //   link: 'https://halo.bungie.net/Stats/GameStatsHalo3.aspx?gameid=1909568821',
-          //   map: 'Foundry',
-          // },
+          {
+            player1Place: 1,
+            player2Place: 2,
+            link: 'https://halo.bungie.net/Stats/GameStatsHalo3.aspx?gameid=1909568821',
+            map: 'Foundry',
+          },
           {
             player1Place: 1,
             player2Place: 2,
@@ -94,7 +94,7 @@ export default {
             player1Place: 2,
             player2Place: 1,
             link: 'https://halo.bungie.net/Stats/GameStatsHalo3.aspx?gameid=1903175156',
-            map: 'Pit',
+            map: 'The Pit',
           },
           {
             player1Place: 2,

@@ -21,9 +21,10 @@
                 'foundry' : match.map === 'Foundry',
                 'guardian' : match.map === 'Guardian',
                 'narrows' : match.map === 'Narrows',
-                'pit' : match.map === 'Pit',
-                'construct' : match.map === 'Construct'}">
-                    match
+                'pit' : match.map === 'The Pit',
+                'construct' : match.map === 'Construct'}"
+                @click="openMatch(match.link)">
+                    {{match.map}}
                 </div>
             </div>
         </div>
@@ -41,6 +42,11 @@ export default {
     const results = document.getElementById('results');
     results.style.opacity = '1';
   },
+  methods: {
+    openMatch(link) {
+      window.open(link, '_blank');
+    },
+  },
 };
 </script>
 
@@ -55,6 +61,23 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+    /* width */
+            ::-webkit-scrollbar {
+            width: 10px;
+            margin-left: 5px;
+            }
+            /* Track */
+            ::-webkit-scrollbar-track {
+            background: transparent;
+            }
+            /* Handle */
+            ::-webkit-scrollbar-thumb {
+            background: rgb(22, 108, 191);
+            }
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+            opacity: 0.7;
+            }
     >.inner {
         height: 90%;
         width: 100%;
@@ -89,18 +112,24 @@ export default {
             }
         }
         >.matches {
-            width: 90%;
-            margin: 0 auto;
+            width: 100%;
+            overflow-y: scroll !important;
+            overflow-x: hidden !important;
+            height: 80%;
+            padding: 10px 0;
             >.match {
+                width: 90%;
+                margin: 0 auto;
                 border: 1px solid #fff;
                 margin-bottom: 10px;
-                height: 100px;
+                height: 150px;
                 background-size: cover;
                 background-repeat: no-repeat;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 transition: transform 0.3s ease-in-out;
+                cursor: pointer;
                 &:hover {
                         transform: scale(1.05);
                     }
@@ -111,22 +140,22 @@ export default {
                 &.narrows {
                     background: url('../assets/images/narrows.jpg');
                     background-position: bottom;
-                    background-position: 10% 65%;
+                    background-position: 10% 63%;
                 }
                 &.pit {
                     background: url('../assets/images/pit.jpg');
                     background-position: bottom;
-                    background-position: 50% 50%;
+                    background-position: 50% 55%;
                 }
                 &.guardian {
                     background: url('../assets/images/guardian.jpg');
                     background-position: bottom;
-                    background-position: 50% 0%;
+                    background-position: 50% 40%;
                 }
                 &.construct {
                     background: url('../assets/images/construct.jpg');
                     background-position: bottom;
-                    background-position: 80% 50%;
+                    background-position: 80% 25%;
                 }
                 &.foundry {
                     background: url('../assets/images/foundry.jpg');
