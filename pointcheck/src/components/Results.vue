@@ -99,17 +99,17 @@ export default {
             }
             /* Handle */
             &.halo2 {
-                ::-webkit-scrollbar-thumb {
+                ::-webkit-scrollbar-thumb{
                     background: #008000;
                 }
             }
             &.halo3 {
-                ::-webkit-scrollbar-thumb {
+                ::-webkit-scrollbar-thumb{
                     background: #166CBF;
                 }
             }
             &.haloReach {
-                ::-webkit-scrollbar-thumb {
+                ::-webkit-scrollbar-thumb{
                     background: #8b008b;
                 }
             }

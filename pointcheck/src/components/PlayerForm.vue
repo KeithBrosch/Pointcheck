@@ -1,5 +1,6 @@
 <template>
-  <div class="player-form">
+  <div class="player-form" :class="[game === 'Halo 3' ? 'halo3' : '',
+  game === 'Halo 2' ? 'halo2' : '', game === 'Halo Reach' ? 'haloReach' : '']">
     <label>Gamertag 1</label>
     <br>
     <input type="text" v-model="gamertag1"/>
@@ -9,6 +10,14 @@
     <br>
     <input type="text" v-model="gamertag2"/>
     <br>
+    <div class="toggles">
+                <div class="customs">Show Custom Games
+                    <div class="toggle" :class="{'on' : showCustoms}"
+                    @click="showCustoms = !showCustoms">
+                        <div class="toggle-inner"></div>
+                        </div>
+                    </div>
+            </div>
     <div v-if="!valid" class="info-container">
     <p class="info">* you must enter the CURRENT gamertag of the account</p>
     <p class="info" v-if="game === 'Halo 3'">* only matches from before 2011 are recoverable</p>
@@ -31,6 +40,7 @@ export default {
     return {
       gamertag1: '',
       gamertag2: '',
+      showCustoms: false,
     };
   },
   methods: {
@@ -49,13 +59,65 @@ export default {
 };
 </script>
 
-<style lang="css" scoped>
+<style lang="scss" scoped>
 .player-form {
     width: 500px;
     height: 300px;
     padding: 50px;
     color: #fff;
     text-align: center;
+
+    &.halo2 {
+       .toggle-inner {
+        background: #008000;
+      }
+    }
+    &.halo3 {
+      .toggle-inner {
+        background: #166CBF;
+      }
+    }
+    &.haloReach {
+      .toggle-inner {
+        background: #8b008b;
+      }
+    }
+    >.toggles {
+            width: 90%;
+            margin: 10px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            >.customs {
+                display: flex;
+            }
+            .toggle {
+                width: 50px;
+                margin: 0 5px;
+                border-radius: 10px;
+                height: 20px;
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+                background-color: rgba(255,255,255,.5);
+                transition: background-color .5s ease-in-out;
+                .toggle-inner {
+                    width: 18px;
+                    height: 18px;
+                    border-radius: 50%;
+                    margin-left: 2px;
+                    transition: margin .5s ease-in-out;
+                }
+                 &.on {
+                     background-color: rgba(255,255,255,1);
+                     transition: background-color .5s ease-in-out;
+                     .toggle-inner {
+                        margin-left: 30px;
+                        transition: margin .5s ease-in-out;
+                     }
+                    }
+            }
+        }
 }
 input {
     width: 200px;
