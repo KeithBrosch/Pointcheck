@@ -1,22 +1,48 @@
 <template>
-  <div class="home">
-    <loading :active.sync="isLoading"
+  <div class="home" :class="[game === 'Halo 3' ? 'halo3' : '',
+  game === 'Halo 2' ? 'halo2' : '', game === 'Halo Reach' ? 'haloReach' : '']">
+  <loading v-if="game === 'Halo 2'"
+    :active.sync="isLoading"
+        :is-full-page="fullPage"
+        color="#008000">
+    </loading>
+    <loading v-else-if="game === 'Halo 3'"
+    :active.sync="isLoading"
         :is-full-page="fullPage"
         color="#166CBF">
+    </loading>
+    <loading v-else-if="game === 'Halo Reach'"
+    :active.sync="isLoading"
+        :is-full-page="fullPage"
+        color="#8b008b">
     </loading>
     <nav id="nav">
       <div class="nav-content">
         <div class="headline">
-          <h1>Pointcheck</h1>
+          <h1 :class="[game === 'Halo 2' ? 'halo2' : '',
+          game === 'Halo 3' ? 'halo3' : '',
+          game === 'Halo Reach' ? 'haloReach' : '']">
+            Pointcheck
+            </h1>
         </div>
-      <div class="details">some stuff goes here</div>
+      <div class="details">
+        <div class="game" @click="game = 'Halo 2'" :class="{'active' : game === 'Halo 2'}">
+          Halo 2
+          </div>
+        <div class="game" @click="game = 'Halo 3'" :class="{'active' : game === 'Halo 3'}">
+          Halo 3
+          </div>
+        <div class="game" @click="game = 'Halo Reach'" :class="{'active' : game === 'Halo Reach'}">
+          Halo Reach
+          </div>
+      </div>
       <div class="footer">created by <a href="https://twitter.com/keithbrosch" target="blank">@keithbrosch</a> and <a href="https://twitter.com/kifflom" target="blank">@kifflom</a>
       <br><br> <a href="#"><center>donate</center></a></div>
       </div>
     </nav>
     <div class="content">
-      <PlayerForm v-if="!showResults" v-on:submit="submit($event)"/>
-      <Results @expandNav="expandNav()" v-if="showResults" :results="results"/>
+      <PlayerForm v-if="!showResults" v-on:submit="submit($event)" :game="game"/>
+      <Results @expandNav="expandNav()" v-if="showResults" :results="results" :game="game"/>
     </div>
   </div>
 </template>
@@ -62,71 +88,104 @@ export default {
       isLoading: false,
       fullPage: true,
       showResults: false,
+      game: 'Halo 3',
       results: {
-        player1: {
-          name: 'Kifflom',
-          emblemURL: 'https://halo.bungie.net/Stats/emblem.ashx?s=70&0=24&1=2&2=24&3=2&fi=10&bi=40&fl=1&m=1',
-        },
-        player2: {
-          name: 'Infury',
-          emblemURL: 'https://halo.bungie.net/Stats/emblem.ashx?s=70&0=3&1=2&2=2&3=3&fi=51&bi=4&fl=1&m=1',
-        },
-        matches: [
+        playerOneName: 'LegendJRG',
+        playerOneEmblem: 'https://halo.bungie.net/Stats/emblem.ashx?s=70&0=11&1=11&2=5&3=3&fi=24&bi=12&fl=1&m=0',
+        playerTwoName: 'Technicity',
+        playerTwoEmblem: 'https://halo.bungie.net/Stats/emblem.ashx?s=70&0=11&1=4&2=3&3=4&fi=38&bi=0&fl=0&m=0',
+        matchedGames: [
           {
-            player1Place: 1,
-            player2Place: 2,
-            link: 'https://halo.bungie.net/Stats/GameStatsHalo3.aspx?gameid=1909568821',
-            map: 'Foundry',
+            gameID: 774205526,
+            map: 'Midship',
+            playlist: 'Arranged Game',
+            gametype: 'Oddball',
+            gamedate: '2007-10-04T22:40:39',
+            playerOnePlacing: null,
+            playerTwoPlacing: null,
+            playerOneKD: null,
+            playerTwoKD: null,
+            matchURL: 'https://halo.bungie.net/Stats/GameStatsHalo2.aspx?gameid=774205526',
           },
           {
-            player1Place: 1,
-            player2Place: 2,
-            link: 'https://halo.bungie.net/Stats/GameStatsHalo3.aspx?gameid=1909568021',
-            map: 'Narrows',
+            gameID: 774204471,
+            map: 'Warlock',
+            playlist: 'Arranged Game',
+            gametype: 'Ctf',
+            gamedate: '2007-10-04T22:24:30',
+            playerOnePlacing: null,
+            playerTwoPlacing: null,
+            playerOneKD: null,
+            playerTwoKD: null,
+            matchURL: 'https://halo.bungie.net/Stats/GameStatsHalo2.aspx?gameid=774204471',
           },
           {
-            player1Place: 2,
-            player2Place: 1,
-            link: 'https://halo.bungie.net/Stats/GameStatsHalo3.aspx?gameid=1903175156',
-            map: 'Heretic',
+            gameID: 774204471,
+            map: 'Warlock',
+            playlist: 'Arranged Game',
+            gametype: 'Ctf',
+            gamedate: '2007-10-04T22:24:30',
+            playerOnePlacing: null,
+            playerTwoPlacing: null,
+            playerOneKD: null,
+            playerTwoKD: null,
+            matchURL: 'https://halo.bungie.net/Stats/GameStatsHalo2.aspx?gameid=774204471',
           },
           {
-            player1Place: 2,
-            player2Place: 1,
-            link: 'https://halo.bungie.net/Stats/GameStatsHalo3.aspx?gameid=1903175156',
-            map: 'The Pit',
+            gameID: 774204471,
+            map: 'Warlock',
+            playlist: 'Arranged Game',
+            gametype: 'Ctf',
+            gamedate: '2007-10-04T22:24:30',
+            playerOnePlacing: null,
+            playerTwoPlacing: null,
+            playerOneKD: null,
+            playerTwoKD: null,
+            matchURL: 'https://halo.bungie.net/Stats/GameStatsHalo2.aspx?gameid=774204471',
           },
           {
-            player1Place: 2,
-            player2Place: 1,
-            link: 'https://halo.bungie.net/Stats/GameStatsHalo3.aspx?gameid=1903175156',
-            map: 'Guardian',
-          },
-          {
-            player1Place: 2,
-            player2Place: 1,
-            link: 'https://halo.bungie.net/Stats/GameStatsHalo3.aspx?gameid=1903175156',
-            map: 'Construct',
+            gameID: 774204471,
+            map: 'Warlock',
+            playlist: 'Arranged Game',
+            gametype: 'Ctf',
+            gamedate: '2007-10-04T22:24:30',
+            playerOnePlacing: null,
+            playerTwoPlacing: null,
+            playerOneKD: null,
+            playerTwoKD: null,
+            matchURL: 'https://halo.bungie.net/Stats/GameStatsHalo2.aspx?gameid=774204471',
           },
         ],
+
       },
     };
   },
 };
 </script>
 
-<style lang="css" scoped>
+<style lang="scss" scoped>
 .home {
   /* background-image: linear-gradient(to right bottom, #d16ba5, #c777b9, #ba83ca,
   #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1); */
-  background: linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(22, 108, 191, 0.7)),
-  url('../assets/images/Narrows01.jpg');
   background-position: center center;
   background-size: cover;
   display: flex;
   height: 100vh;
   width: 100vw;
   /* overflow: hidden; */
+  &.halo2 {
+    background: linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(0, 128, 0, 0.3)),
+  url('../assets/images/sanctuary.jpg');
+  background-position: 50% 70%;
+  }
+  &.halo3 {
+    background: linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(22, 108, 191, 0.7)),
+  url('../assets/images/Narrows01.jpg');
+  }
+  &.haloReach {
+    background: linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(139,0,139, 0.5)),
+  url('../assets/images/zealot.jpg');
+  }
 }
 nav {
   width: 33%;
@@ -153,14 +212,31 @@ h1, h2, h3, p, span, ul {
 }
 .headline {
   height: 20%;
+  text-align: center;
 }
 .headline h1 {
   font-size: 2em;
   font-weight: 700;
+  &.halo2 {
+    color: rgba(0, 128, 0, 1);
+  }
+  &.halo3 {
+    color: rgba(22, 108, 191, 1);
+  }
+  &.haloReach {
+    color: rgba(139,0,139, 1);
+  }
 }
 .details   {
   height: 70%;
   padding: 0 20px;
+  text-align: center;
+  .game {
+    cursor: pointer;
+  &.active {
+    font-weight: bold;
+  }
+  }
 }
 .name {
   font-weight: 700;

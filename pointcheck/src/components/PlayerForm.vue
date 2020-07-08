@@ -11,7 +11,7 @@
     <br>
     <div v-if="!valid" class="info-container">
     <p class="info">* you must enter the CURRENT gamertag of the account</p>
-    <p class="info">* only matches from before 2011 are recoverable</p>
+    <p class="info" v-if="game === 'Halo 3'">* only matches from before 2011 are recoverable</p>
     </div>
     <button v-if="(valid)"
     @click="submit()"
@@ -24,6 +24,9 @@
 
 export default {
   name: 'PlayerForm',
+  props: [
+    'game',
+  ],
   data() {
     return {
       gamertag1: '',
