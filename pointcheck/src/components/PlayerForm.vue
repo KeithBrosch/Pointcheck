@@ -10,7 +10,7 @@
     <br>
     <input type="text" v-model="gamertag2"/>
     <br>
-    <div class="toggles">
+    <div v-if="game !== 'Halo 2'" class="toggles">
                 <div class="customs">Show Custom Games
                     <div class="toggle" :class="{'on' : showCustoms}"
                     @click="showCustoms = !showCustoms">
@@ -20,7 +20,8 @@
             </div>
     <div v-if="!valid" class="info-container">
     <p class="info">* you must enter the CURRENT gamertag of the account</p>
-    <p class="info" v-if="game === 'Halo 3'">* only matches from before 2011 are recoverable</p>
+    <p class="info" v-if="game === 'Halo 3' ||
+    game === 'Halo 2'">* only matches from before 2011 are recoverable</p>
     </div>
     <button v-if="(valid)"
     @click="submit()"
