@@ -1,16 +1,16 @@
 <template>
-  <div class="player-form" :class="[game === 'Halo 3' ? 'halo3' : '',
-  game === 'Halo 2' ? 'halo2' : '', game === 'Halo Reach' ? 'haloReach' : '']">
+  <div class="player-form" :class="[game === 'H3' ? 'halo3' : '',
+  game === 'H2' ? 'halo2' : '', game === 'HR' ? 'haloReach' : '']">
     <label>Gamertag 1</label>
     <br>
-    <input type="text" v-model="gamertag1"/>
+    <input type="text" v-model="gamertag1" maxlength="20"/>
     <br>
     <br>
     <label>Gamertag 2</label>
     <br>
-    <input type="text" v-model="gamertag2"/>
+    <input type="text" v-model="gamertag2" maxlength="20"/>
     <br>
-    <div v-if="game !== 'Halo 2'" class="toggles">
+    <div v-if="game !== 'H2'" class="toggles">
                 <div class="customs">Show Custom Games
                     <div class="toggle" :class="{'on' : showCustoms}"
                     @click="showCustoms = !showCustoms">
@@ -20,11 +20,13 @@
             </div>
     <div v-if="!valid" class="info-container">
     <p class="info">* you must enter the CURRENT gamertag of the account</p>
-    <p class="info" v-if="game === 'Halo 3' ||
-    game === 'Halo 2'">* only matches from before 2011 are recoverable</p>
+    <p class="info" v-if="game === 'H3' ||
+    game === 'H2'">* only matches from before 2011 are recoverable</p>
     </div>
     <button v-if="(valid)"
     @click="submit()"
+    :class="[game === 'H2' ? 'halo2' : '', game === 'H3' ? 'halo3' : ''
+    , game === 'HR' ? 'haloReach' : '']"
     type="submit">Search</button>
   </div>
 </template>
@@ -46,7 +48,7 @@ export default {
   },
   methods: {
     submit() {
-      this.$emit('submit', [this.gamertag1, this.gamertag2]);
+      this.$emit('submit', [this.gamertag1, this.gamertag2, this.showCustoms]);
     },
   },
   computed: {
@@ -67,20 +69,22 @@ export default {
     padding: 50px;
     color: #fff;
     text-align: center;
-
+@media only screen and (min-width: 1800px) {
+  width: auto;
+}
     &.halo2 {
        .toggle-inner {
-        background: #008000;
+        background: rgb(255, 34, 129);
       }
     }
     &.halo3 {
       .toggle-inner {
-        background: #166CBF;
+        background: rgb(113, 34, 250);
       }
     }
     &.haloReach {
       .toggle-inner {
-        background: #8b008b;
+        background: rgb(1, 31, 253);
       }
     }
     >.toggles {
@@ -91,6 +95,7 @@ export default {
             justify-content: center;
             >.customs {
                 display: flex;
+                align-items: center;
             }
             .toggle {
                 width: 50px;
@@ -101,20 +106,20 @@ export default {
                 align-items: center;
                 cursor: pointer;
                 background-color: rgba(255,255,255,.5);
-                transition: background-color .5s ease-in-out;
+                transition: background-color .3s ease-in-out;
                 .toggle-inner {
                     width: 18px;
                     height: 18px;
                     border-radius: 50%;
                     margin-left: 2px;
-                    transition: margin .5s ease-in-out;
+                    transition: margin .3s ease-in-out;
                 }
                  &.on {
                      background-color: rgba(255,255,255,1);
-                     transition: background-color .5s ease-in-out;
+                     transition: background-color .3s ease-in-out;
                      .toggle-inner {
                         margin-left: 30px;
-                        transition: margin .5s ease-in-out;
+                        transition: margin .3s ease-in-out;
                      }
                     }
             }
@@ -142,12 +147,37 @@ button {
     outline: none;
     color: #fff;
     cursor: pointer;
+    &.halo2 {
+      &:hover {
+        background: rgb(255, 34, 129);
+        background: rgb(255, 34, 129);
+      }
+      &:active {
+          background: rgb(255, 34, 129);
+      }
+    }
+    &.halo3 {
+      &:hover {
+        background: rgb(113, 34, 250);
+        background: rgb(113, 34, 250);
+      }
+      &:active {
+          background: rgb(113, 34, 250);
+      }
+    }
+    &.haloReach {
+      &:hover {
+        background: rgb(1, 31, 253);
+        background: rgb(1, 31, 253);
+      }
+      &:active {
+          background: rgb(1, 31, 253);
+      }
+    }
 }
-button:hover {
-    background: rgb(22, 108, 191);
-    border-color: rgb(22, 108, 191);
-}
-button:active {
-    border-color: rgb(22, 108, 191)
+@media only screen and (min-width: 1800px) {
+  *{
+  font-size: 2rem;
+  }
 }
 </style>
