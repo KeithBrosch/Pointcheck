@@ -296,6 +296,11 @@ export default {
         @media only screen and (min-width: 1800px) {
           width: 250px;
           height: 250px;
+          &:hover {
+            min-width: 256px;
+            min-height: 256px;
+            margin: 22px
+        }
         }
       }
     }

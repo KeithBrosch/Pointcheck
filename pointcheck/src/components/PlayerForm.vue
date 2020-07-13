@@ -281,6 +281,9 @@ input {
     height: 30px;
     padding: 5px 5px 5px 10px;
     margin: 10px 0;
+    @media only screen and (min-width: 1800px) {
+      width: 300px;
+    }
 }
 .info-container {
     height: 80px;
@@ -290,9 +293,10 @@ input {
     font-size: .8em;
 }
 button {
-    height: 40px;
+    // height: 40px;
     margin-top: 20px;
-    width: 80px;
+    // width: 80px;
+    padding: 10px 20px;
     background: transparent;
     border: 1px solid #fff;
     outline: none;
@@ -328,7 +332,7 @@ button {
 }
 @media only screen and (min-width: 1800px) {
   *{
-  font-size: 2rem;
+  font-size: 1.5rem;
   }
 }
 
