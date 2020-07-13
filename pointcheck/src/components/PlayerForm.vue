@@ -85,7 +85,32 @@
         match.map === 'Sandtrap' ? 'sandtrap' : '',
         match.map === 'Snowbound' ? 'snowbound' : '',
         match.map === 'Standoff' ? 'standoff' : '',
-        match.map === 'Valhalla' ? 'valhalla' : '',]">
+        match.map === 'Valhalla' ? 'valhalla' : '',
+        match.map === 'Ascension' ? 'ascension' : '',
+        match.map === 'Backwash' ? 'backwash' : '',
+        match.map === 'Beaver Creek' ? 'beaverCreek' : '',
+        match.map === 'Burial Mounds' ? 'burialMounds' : '',
+        match.map === 'Coagulation' ? 'coagulation' : '',
+        match.map === 'Colossus' ? 'colossus' : '',
+        match.map === 'Containment' ? 'containment' : '',
+        match.map === 'Desolation' ? 'desolation' : '',
+        match.map === 'District' ? 'district' : '',
+        match.map === 'Elongation' ? 'elongation' : '',
+        match.map === 'Foundation' ? 'foundation' : '',
+        match.map === 'Gemini' ? 'gemini' : '',
+        match.map === 'Headlong' ? 'headlong' : '',
+        match.map === 'Ivory Tower' ? 'ivoryTower' : '',
+        match.map === 'Lockout' ? 'lockout' : '',
+        match.map === 'Midship' ? 'midship' : '',
+        match.map === 'Relic' ? 'relic' : '',
+        match.map === 'Sanctuary' ? 'sanctuary' : '',
+        match.map === 'Terminal' ? 'terminal' : '',
+        match.map === 'Tombstone' ? 'tombstone' : '',
+        match.map === 'Turf' ? 'turf' : '',
+        match.map === 'Uplift' ? 'uplift' : '',
+        match.map === 'Warlock' ? 'warlock' : '',
+        match.map === 'Waterworks' ? 'waterworks' : '',
+        match.map === 'Zanzibar' ? 'zanzibar' : '',]">
         {{getMomentTime(match.gamedate)}}
         <br>
           {{match.map}}
@@ -98,7 +123,6 @@
 
 <script>
 import moment from 'moment';
-//
 
 export default {
   name: 'PlayerForm',
@@ -403,6 +427,164 @@ button {
         margin: -5px;
       }
       }
+      // h2 maps
+      &.ascension {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url('../assets/images/Ascension.png');
+        background-size: cover;
+        background-position: center center;
+      }
+       &.backwash {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url('../assets/images/Backwash.jpg');
+        background-size: cover;
+        background-position: center center;
+      }
+       &.beaverCreek {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url('../assets/images/Beaver Creek.jpg');
+        background-size: cover;
+        background-position: center center;
+      }
+      &.burialMounds {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url('../assets/images/Burial Mounds.jpg');
+        background-size: cover;
+        background-position: center center;
+      }
+      &.coagulation {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url('../assets/images/Coagulation.jpg');
+        background-size: cover;
+        background-position: center center;
+      }
+      &.colossus {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url('../assets/images/Colossus.jpg');
+        background-size: cover;
+        background-position: center center;
+      }
+      &.containment {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url('../assets/images/Containment.jpg');
+        background-size: cover;
+        background-position: center center;
+      }
+      &.desolation {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url('../assets/images/Desolation.jpg');
+        background-size: cover;
+        background-position: center center;
+      }
+      &.containment {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url('../assets/images/Containment.jpg');
+        background-size: cover;
+        background-position: center center;
+      }
+      &.district {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url('../assets/images/District.jpg');
+        background-size: cover;
+        background-position: center center;
+      }
+      &.elongation {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url('../assets/images/Elongation.jpg');
+        background-size: cover;
+        background-position: center center;
+      }
+      &.foundation {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url('../assets/images/Foundation.jpg');
+        background-size: cover;
+        background-position: center center;
+      }
+      &.gemini {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url('../assets/images/Gemini.jpg');
+        background-size: cover;
+        background-position: center center;
+      }
+       &.headlong {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url('../assets/images/Headlong.jpg');
+        background-size: cover;
+        background-position: center center;
+      }
+       &.ivoryTower {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url('../assets/images/Ivory Tower.jpg');
+        background-size: cover;
+        background-position: center center;
+      }
+      &.lockout {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url('../assets/images/Lockout.jpg');
+        background-size: cover;
+        background-position: center center;
+      }
+      &.midship {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url('../assets/images/Midship.jpg');
+        background-size: cover;
+        background-position: center center;
+      }
+      &.relic {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url('../assets/images/Relic.jpg');
+        background-size: cover;
+        background-position: center center;
+      }
+      &.sanctuary {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url('../assets/images/Sanctuary.jpg');
+        background-size: cover;
+        background-position: center center;
+      }
+      &.terminal {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url('../assets/images/Terminal.jpg');
+        background-size: cover;
+        background-position: center center;
+      }
+      &.tombstone {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url('../assets/images/Tombstone.jpg');
+        background-size: cover;
+        background-position: center center;
+      }
+      &.turf {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url('../assets/images/Turf.png');
+        background-size: cover;
+        background-position: center center;
+      }
+      &.uplift {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url('../assets/images/Uplift.jpg');
+        background-size: cover;
+        background-position: center center;
+      }
+      &.warlock {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url('../assets/images/Warlock.jpg');
+        background-size: cover;
+        background-position: center center;
+      }
+      &.waterworks {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url('../assets/images/Waterworks.jpg');
+        background-size: cover;
+        background-position: center center;
+      }
+      &.zanzibar {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url('../assets/images/Zanzibar.jpg');
+        background-size: cover;
+        background-position: center center;
+      }
+      // h3 maps
       &.assembly {
         background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
         url('../assets/images/Assembly.jpg');
@@ -541,6 +723,7 @@ button {
         background-size: cover;
         background-position: center center;
       }
+      // reach maps
     }
   }
 }
