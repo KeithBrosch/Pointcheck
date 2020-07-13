@@ -48,7 +48,7 @@
           <div class="inner">
             <h2 v-if="!halo2Opened">halo 2</h2>
           <div v-else class="inner">
-            <PlayerForm :game="game" @submit="submit($event)"/>
+            <PlayerForm :game="game" :results="results" @submit="submit($event)" @back="back"/>
             <div :class="{hide : !showError}" class="error">{{note}}</div>
           </div>
             </div>
@@ -59,7 +59,7 @@
         <div class="inner">
         <h2 v-if="!halo3Opened">halo 3</h2>
           <div v-else class="inner">
-            <PlayerForm :game="game" @submit="submit($event)"/>
+            <PlayerForm :game="game" :results="results" @submit="submit($event)" @back="back"/>
             <div v-if="showError" class="error">{{note}}</div>
           </div>
         </div>
@@ -70,7 +70,7 @@
             <div class="inner">
             <h2 v-if="!haloreachOpened">halo: reach</h2>
             <div v-else class="inner">
-              <PlayerForm :game="game" @submit="submit($event)"/>
+              <PlayerForm :game="game"  :results="results" @submit="submit($event)" @back="back"/>
               <div v-if="showError" class="error">{{note}}</div>
             </div>
             </div>
@@ -88,7 +88,7 @@
     <div :class="{'hide': halo2Opened || halo3Opened || haloreachOpened}" class="footer">Created by
     <a href="https:twitter.com/keithbrosch" target="blank">@keithbrosch</a>
     & <a href="https:twitter.com/kifflom" target="blank">@kifflom</a>
-    | <a href="#" target="blank">donate</a>
+    | <a href="https://www.patreon.com/pointcheck" target="blank">donate</a>
     </div>
   </div>
   </div>
@@ -130,11 +130,13 @@ export default {
         .then((response) => {
           console.log(response.data);
           // show error note
-          if (response && response.data.note && response.data.note.includes('has no Bungie.net games for')) {
+          if (response && response.data.note) {
             this.note = response.data.note;
             this.showError = true;
           } else {
             this.results = response.data;
+            this.note = null;
+            this.showReults = true;
           }
         })
         .catch((error) => {
@@ -144,6 +146,9 @@ export default {
         .finally(() => {
           this.isLoading = false;
         });
+    },
+    back() {
+      this.$router.go();
     },
   },
   data() {
@@ -164,6 +169,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+* {overflow-x: hidden !important;}
 .home {
   min-width: 100vw;
   min-height: 100vh;
