@@ -59,6 +59,8 @@
       </div> -->
       <div class="back" @click="back">home</div>
       <h1>matches</h1>
+      <div v-if="!results || !results.matchedGames || results.matchedGames.length === 0"
+      class="noMatches">no matches were found between these two players</div>
       <div class="matches">
         <div v-for="(match, index) of results.matchedGames"
         :key="index" class="match" @click="goTo(match.gameUrl)"
@@ -110,7 +112,25 @@
         match.map === 'Uplift' ? 'uplift' : '',
         match.map === 'Warlock' ? 'warlock' : '',
         match.map === 'Waterworks' ? 'waterworks' : '',
-        match.map === 'Zanzibar' ? 'zanzibar' : '',]">
+        match.map === 'Zanzibar' ? 'zanzibar' : '',
+        match.map === 'Anchor 9' ? 'anchor9' : '',
+        match.map === 'Boardwalk' ? 'boardwalk' : '',
+        match.map === 'Boneyard' ? 'boneyard' : '',
+        match.map === 'Breakpoint' ? 'breakpoint' : '',
+        match.map === 'Condemned' ? 'condemned' : '',
+        match.map === 'Countdown' ? 'countdown' : '',
+        match.map === 'Forge World' ? 'forgeWorld' : '',
+        match.map === 'Highlands' ? 'highlands' : '',
+        match.map === 'Powerhouse' ? 'powerhouse' : '',
+        match.map === 'Reflection' ? 'reflection' : '',
+        match.map === 'Spire' ? 'spire' : '',
+        match.map === 'Sword Base' ? 'swordBase' : '',
+        match.map === 'Tempest' ? 'tempest' : '',
+        match.map === 'Zealot' ? 'zealot' : '',
+        match.map === 'Penance' ? 'penance' : '',
+        match.map === 'High Noon' ? 'highNoon' : '',
+        match.map === 'Solitary' ? 'solitary' : '',
+        match.map === 'Battle Canyon' ? 'battleCanyon' : '',]">
         {{getMomentTime(match.gamedate)}}
         <br>
           {{match.map}}
@@ -308,6 +328,10 @@ button {
   min-height: 100vh;
   overflow: scroll;
   height: 90vh;
+  .noMatches {
+      text-align: center;
+      padding: 20px 10px 0 20px;
+    }
   >.players {
     flex-direction: column;
     width: 70%;
@@ -724,6 +748,114 @@ button {
         background-position: center center;
       }
       // reach maps
+      &.anchor9 {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url('../assets/images/Anchor 9.jpg');
+        background-size: cover;
+        background-position: center center;
+      }
+      &.boardwalk {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url('../assets/images/Boardwalk.jpg');
+        background-size: cover;
+        background-position: center center;
+      }
+      &.boneyard {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url('../assets/images/Boneyard.jpg');
+        background-size: cover;
+        background-position: center center;
+      }
+      &.breakpoint {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url('../assets/images/Breakpoint.jpg');
+        background-size: cover;
+        background-position: center center;
+      }
+      &.condemned {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url('../assets/images/Condemned.jpg');
+        background-size: cover;
+        background-position: center center;
+      }
+      &.countdown {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url('../assets/images/Countdown.jpg');
+        background-size: cover;
+        background-position: center center;
+      }
+      &.forgeWorld {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url('../assets/images/Forge World.png');
+        background-size: cover;
+        background-position: center center;
+      }
+      &.highlands {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url('../assets/images/Highlands.jpg');
+        background-size: cover;
+        background-position: center center;
+      }
+      &.powerhouse {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url('../assets/images/Powerhouse.jpg');
+        background-size: cover;
+        background-position: center center;
+      }
+      &.reflection {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url('../assets/images/Reflection.jpg');
+        background-size: cover;
+        background-position: center center;
+      }
+      &.spire {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url('../assets/images/Spire.jpg');
+        background-size: cover;
+        background-position: center center;
+      }
+      &.swordBase {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url('../assets/images/Sword Base.jpg');
+        background-size: cover;
+        background-position: center center;
+      }
+      &.tempest {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url('../assets/images/Tempest.jpg');
+        background-size: cover;
+        background-position: center center;
+      }
+      &.zealot {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url('../assets/images/Zealot.jpg');
+        background-size: cover;
+        background-position: center center;
+      }
+      &.penance {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url('../assets/images/Penance.jpg');
+        background-size: cover;
+        background-position: center center;
+      }
+      &.highNoon {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url('../assets/images/High Noon.jpg');
+        background-size: cover;
+        background-position: center center;
+      }
+      &.solitary {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url('../assets/images/Solitary.png');
+        background-size: cover;
+        background-position: center center;
+      }
+      &.battleCanyon {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url('../assets/images/Battle Canyon.jpg');
+        background-size: cover;
+        background-position: center center;
+      }
     }
   }
 }

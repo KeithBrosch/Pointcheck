@@ -132,6 +132,29 @@ export default {
           // show error note
           if (response && response.data.note) {
             this.note = response.data.note;
+            if (this.note.includes('corrupted games') && this.game === 'HR') {
+              // scrape again to solve corrupted games bug
+              axios.get(`https://pointcheckapi.azurewebsites.net/api/pointcheck/scrape/${this.game}/${gamertag1}&${gamertag2}`, { headers: { getCustoms: showCustoms } })
+                .then((response2) => {
+                  console.log(response2.data);
+                  // show error note
+                  if (response2 && response2.data.note) {
+                    this.note = response2.data.note;
+                    this.showError = true;
+                  } else {
+                    this.results = response2.data;
+                    this.note = null;
+                    this.showReults = true;
+                  }
+                })
+                .catch((error) => {
+                  // handle error
+                  console.log(error);
+                })
+                .finally(() => {
+                  this.isLoading = false;
+                });
+            }
             this.showError = true;
           } else {
             this.results = response.data;
