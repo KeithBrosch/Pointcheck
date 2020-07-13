@@ -20,9 +20,9 @@
                     </div>
             </div>
     <div v-if="!valid" class="info-container">
-    <p class="info">* you must enter the CURRENT gamertag of the account</p>
-    <p class="info" v-if="game === 'H3' ||
-    game === 'H2'">* only matches from before 2011 are recoverable</p>
+    <p class="info">*bungie did not record games after 3/31/2012 for any halo</p>
+    <p class="info">*because of that, enter the gamertag as of 3/31/2012</p>
+    <p class="info">*searches may take 30-60 seconds. searches take longer the more total games asdasdasdasdasd </p> 
     </div>
     <button v-if="(valid)"
     @click="submit()"
@@ -286,7 +286,7 @@ input {
     }
 }
 .info-container {
-    height: 80px;
+    height: 150px;
 }
 .info {
     margin-top: 20px;
