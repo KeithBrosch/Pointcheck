@@ -60,7 +60,7 @@
       <div class="back" @click="back">home</div>
       <h1>matches</h1>
       <div v-if="!results || !results.matchedGames || results.matchedGames.length === 0"
-      class="noMatches">no matches were found between these two players</div>
+      class="noMatches">{{ noMatches }}</div>
       <div class="matches">
         <div v-for="(match, index) of results.matchedGames"
         :key="index" class="match" @click="goTo(match.gameUrl)"
@@ -195,6 +195,15 @@ export default {
       if (this.results) {
         return this.results.length;
       } return 0;
+    },
+    noMatches() {
+      if (this.game === 'H2') {
+        return 'no shared halo 2 matches';
+      } else if (this.game === 'H3') {
+        return 'no shared halo 3 matches';
+      } else if (this.game === 'HR') {
+        return 'no shared halo: reach matches';
+      } return 'error';
     },
   },
 };
