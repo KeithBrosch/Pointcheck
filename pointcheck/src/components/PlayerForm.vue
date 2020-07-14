@@ -21,13 +21,13 @@
             </div>
     <div v-if="!valid" class="info-container">
     <p class="info">
-      *bungie took a 'snapshot' on 3/31/2012. games after that aren't available for any halo</p>
-    <p class="info info-subhead">because of this, enter the account's gamertag as of 3/31/2012</p>
-    <p class="info">*search time is based on total number of games played. avg 30-45 seconds</p>
-      <p class="info info-subhead"> adding customs increases search time</p>
-    <p class="info"  v-if="game == 'HR'">*reach may return "corrupted games" due to bungie issue</p>
-    <p class="info info-subhead" v-if="game == 'HR'">rerun search to fix </p>
-
+      *enter the gamertag as it was in march of 2012</p>
+    <p class="info">
+      *search time is based on total number of games played. avg 30-45 seconds
+    </p>
+    <p class="info"  v-if="game == 'HR'">
+      *reach searches may have to be run a second time due to "corrupted games"
+    </p>
     </div>
     <button v-if="(valid)"
     @click="submit()"
@@ -143,6 +143,11 @@
           {{match.gametype}}
         </div>
       </div>
+      <div class="footer">Created by
+    <a href="https:twitter.com/keithbrosch" target="blank">@keithbrosch</a>
+    & <a href="https:twitter.com/kifflom" target="blank">@kifflom</a>
+    | <a href="https://www.patreon.com/pointcheck" target="blank">donate</a>
+    </div>
   </div>
 </template>
 
@@ -291,16 +296,12 @@ input {
     }
 }
 .info-container {
-  height: 275px; //increased height to prevent scrollbar
   text-align:left;
-  padding-left: 35px;
+  padding: 0 15px;
 }
 .info {
     margin-top: 20px;
     font-size: .8em;
-}
-.info-subhead{
-padding-left: 50px;
 }
 button {
     // height: 40px;
@@ -370,10 +371,16 @@ button {
       margin-bottom: 20px;
       img {
         margin-right: 10px;
+        width: 72px !important;
+        height: 72px !important;
         border: 1px solid #fff;
       }
       h1 {
-           border-bottom: 2px solid crimson;
+          font-size: 1rem;
+          border-bottom: 2px solid crimson;
+          @media only screen and (min-width: 500px) {
+            font-size: 2rem;
+          }
         }
     }
     >.player2 {
@@ -381,11 +388,17 @@ button {
       align-items: center;
       margin-bottom: 20px;
       img {
+        width: 72px !important;
+        height: 72px !important;
         margin-right: 10px;
         border: 1px solid #fff;
       }
       h1 {
-           border-bottom: 2px solid dodgerblue;
+        font-size: 1rem;
+        border-bottom: 2px solid dodgerblue;
+        @media only screen and (min-width: 500px) {
+            font-size: 2rem;
+          }
         }
     }
   }
@@ -887,4 +900,27 @@ button {
   cursor: pointer;
   margin-bottom: 20px;
 }
+.footer {
+      z-index: 102;
+      color: white;
+      background: rgba(0,0,0,0.2);
+      font-size: 12px;
+      @media only screen and (min-width: 400px) {
+        font-size: 1rem;
+      }
+      @media only screen and (min-width: 1800px) {
+        font-size: 1.6rem;
+      }
+      a {
+        text-decoration: none;
+        color: white;
+        cursor: pointer;
+      }
+      &.hide {
+        display: none;
+      }
+      @media only screen and (min-width: 1440px) {
+          margin-top: 20px;
+        }
+    }
 </style>

@@ -190,9 +190,10 @@ export default {
       color: white;
       h1 {
         font-size: 3rem;
-        margin: 0 0 50px 0;
+        margin: 50px 0 0;
         @media only screen and (min-width: 568px) {
           font-size: 4rem;
+          margin-bottom: 10px;
         }
         @media only screen and (min-width: 1440px) {
           font-size: 5rem;
@@ -207,10 +208,18 @@ export default {
       align-items: center;
       justify-content: center;
       flex-wrap: wrap;
-      margin: 0 50px;
+      margin: 0 50px 0 50px;
+      overflow-y: scroll;
+      ::-webkit-scrollbar {
+          width: 0px;  /* Remove scrollbar space */
+          background: transparent;  /* Optional: just make scrollbar invisible */
+      }
+      @media only screen and (min-width: 500px) {
+        overflow: hidden;
+      }
       .game {
-        width: 150px;
-        height: 150px;
+        width: 130px;
+        height: 130px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -220,12 +229,19 @@ export default {
         transition: height  0s ease;
         // border-radius: 50%;
         border: 2px solid white;
-        margin: 25px;
+        margin: 5px;
         z-index: 101;
+        @media only screen and (min-width: 500px) {
+          width: 150px;
+          height: 150px;
+          margin: 25px;
+        }
         &:hover {
-          min-width: 156px;
-          min-height: 156px;
-          margin: 22px
+          @media only screen and (min-width: 500px) {
+            min-width: 156px;
+            min-height: 156px;
+            margin: 22px
+          }
         }
         &.opened {
           box-shadow: none;
@@ -256,6 +272,7 @@ export default {
         }
         .inner {
           z-index: 101;
+          text-align: center;
           @media only screen and (min-width: 1800px) {
           h2 {
             font-size: 2rem;
@@ -285,6 +302,13 @@ export default {
       z-index: 102;
       color: white;
       background: rgba(0,0,0,0.2);
+      font-size: 12px;
+      @media only screen and (min-width: 400px) {
+        font-size: 1rem;
+      }
+      @media only screen and (min-width: 1800px) {
+        font-size: 1.6rem;
+      }
       a {
         text-decoration: none;
         color: white;
