@@ -1,6 +1,6 @@
 .DS_Store
 node_modules
-/dist
+# removed /dist from gitignore. need this to deploy apparently
 
 # local env files
 .env.local

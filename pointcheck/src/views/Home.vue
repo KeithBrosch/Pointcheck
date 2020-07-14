@@ -276,7 +276,7 @@ export default {
           &:hover {
             min-width: 256px;
             min-height: 256px;
-            margin: 22px
+            //margin: 22px //this is making the colored background shift down on mouseover
         }
         }
       }
