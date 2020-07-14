@@ -20,9 +20,14 @@
                     </div>
             </div>
     <div v-if="!valid" class="info-container">
-    <p class="info">*bungie did not record games after 3/31/2012 for any halo</p>
-    <p class="info">*because of that, enter the gamertag as of 3/31/2012</p>
-    <p class="info">*searches may take 30-60 seconds. searches take longer the more total games asdasdasdasdasd </p> 
+    <p class="info">
+      *bungie took a 'snapshot' on 3/31/2012. games after that aren't available for any halo</p>
+    <p class="info info-subhead">because of this, enter the account's gamertag as of 3/31/2012</p>
+    <p class="info">*search time is based on total number of games played. avg 30-45 seconds</p>
+      <p class="info info-subhead"> adding customs increases search time</p>
+    <p class="info"  v-if="game == 'HR'">*reach may return "corrupted games" due to bungie issue</p>
+    <p class="info info-subhead" v-if="game == 'HR'">rerun search to fix </p>
+
     </div>
     <button v-if="(valid)"
     @click="submit()"
@@ -286,11 +291,16 @@ input {
     }
 }
 .info-container {
-    height: 150px;
+  height: 275px; //increased height to prevent scrollbar
+  text-align:left;
+  padding-left: 35px;
 }
 .info {
     margin-top: 20px;
     font-size: .8em;
+}
+.info-subhead{
+padding-left: 50px;
 }
 button {
     // height: 40px;
